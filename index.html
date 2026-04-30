@@ -172,6 +172,29 @@ function updateGallery() {
   document.getElementById("mainImage").src = "bug" + currentImage + ".jpeg";
   document.getElementById("counter").innerText = currentImage + " / " + totalImages;
 }
+  let startX = 0;
+
+document.getElementById("mainImage").addEventListener("touchstart", function(e) {
+  startX = e.touches[0].clientX;
+});
+
+document.getElementById("mainImage").addEventListener("touchend", function(e) {
+  let endX = e.changedTouches[0].clientX;
+
+  if (startX - endX > 50) {
+    changeImage(1);
+  } else if (endX - startX > 50) {
+    changeImage(-1);
+  }
+});
+
+document.addEventListener("keydown", function(e) {
+  if (document.getElementById("gallery").style.display === "flex") {
+    if (e.key === "ArrowRight") changeImage(1);
+    if (e.key === "ArrowLeft") changeImage(-1);
+    if (e.key === "Escape") closeGallery();
+  }
+});
 </script>
 
 </body>
