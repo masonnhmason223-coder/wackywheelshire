@@ -14,16 +14,25 @@ body {
 }
 
 header {
+  position: relative;
   background: url('banner.jpeg.jpg') center/cover no-repeat;
-  height: 60vh;
+  background-position: center top;
+  height: 70vh;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.6s ease;
 }
+  header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+  header h1,
 header p {
-  font-size: 20px;
+  position: relative;
+  z-index: 1;
 }
 header:hover {
   transform: scale(1.05);
