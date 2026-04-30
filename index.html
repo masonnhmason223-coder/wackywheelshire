@@ -7,91 +7,161 @@
 
 <style>
 body {
-  margin:0;
-  font-family:Arial;
-  background:#111;
-  color:white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
 }
 
 header {
-  text-align:center;
-  padding:40px;
-  background:#000;
+  background: #000;
+  text-align: center;
+  padding: 40px 20px;
 }
 
 header h1 {
-  color:#ffcc00;
+  color: #ffcc00;
+  margin: 0;
 }
 
 nav {
-  text-align:center;
-  background:#222;
-  padding:10px;
+  background: #222;
+  text-align: center;
+  padding: 15px;
 }
 
 nav a {
-  color:white;
-  margin:10px;
-  text-decoration:none;
-  font-weight:bold;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 15px;
 }
 
 section {
-  padding:40px;
-  text-align:center;
+  padding: 45px 20px;
+  text-align: center;
 }
 
 .vehicles {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 30px auto;
 }
 
 .card {
-  background:#222;
-  border-radius:10px;
-  width:260px;
-  overflow:hidden;
+  background: #222;
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 .card img {
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  cursor:pointer;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .card h3 {
-  color:#ffcc00;
+  color: #ffcc00;
+  font-size: 24px;
+}
+
+.card p {
+  padding: 0 18px 20px;
+}
+
+.tag {
+  background: #ffcc00;
+  color: #111;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+form {
+  background: #222;
+  padding: 25px;
+  border-radius: 14px;
+  max-width: 500px;
+  margin: auto;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 13px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+}
+
+button {
+  background: #ffcc00;
+  border: none;
+  padding: 14px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .gallery {
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:black;
-  overflow:auto;
-  padding-top:60px;
-  z-index:999;
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.gallery img {
-  width:300px;
-  margin:10px;
-  border-radius:10px;
+.main-gallery-img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
 }
 
 .close {
-  position:fixed;
-  top:20px;
-  right:30px;
-  font-size:40px;
-  color:white;
-  cursor:pointer;
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 45px;
+  color: white;
+  cursor: pointer;
+}
+
+.arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: none;
+  font-size: 40px;
+  padding: 10px 18px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: auto;
+}
+
+.left { left: 20px; }
+.right { right: 20px; }
+
+#counter {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+footer {
+  background: #000;
+  text-align: center;
+  padding: 25px;
+  color: #aaa;
 }
 </style>
 </head>
@@ -99,49 +169,109 @@ section {
 <body>
 
 <header>
-  <h1>🚘 Wacky Wheels Hire</h1>
-  <p>Proms • Weddings • Special Events</p>
+  <h1>Wacky Wheels Hire</h1>
+  <p>Proms • Weddings • Special Events • Quirky Arrivals</p>
 </header>
 
 <nav>
-  <a href="#">Home</a>
-  <a href="#">Vehicles</a>
-  <a href="#">Book</a>
+  <a href="#home">Home</a>
+  <a href="#vehicles">Vehicles</a>
+  <a href="#book">Book</a>
+  <a href="#contact">Contact</a>
 </nav>
 
-<section>
+<section id="home">
   <h2>Make Your Entrance Unforgettable</h2>
-  <p>Stand out at your prom or event with something different.</p>
+  <p>Turn up in something different. From retro classics to proper head-turners.</p>
 </section>
 
-<section>
+<section id="vehicles">
   <h2>Our Vehicles</h2>
+  <p>Click the Bond Bug image to view the gallery.</p>
 
   <div class="vehicles">
 
-    <!-- BOND BUG -->
     <div class="card">
-    <img src="bug1.jpeg" onclick="openGallery()">
+      <img src="bug1.jpeg" alt="Bond Bug" onclick="openGallery()">
       <h3>Bond Bug</h3>
-      <p>Something completely different. Guaranteed attention.</p>
+      <span class="tag">Proper Head Turner</span>
+      <p>Something completely different. Bright, bold, rare and guaranteed to get people looking.</p>
+    </div>
+
+    <div class="card">
+      <h3>VW Camper</h3>
+      <span class="tag">Retro Classic</span>
+      <p>Classic retro style — perfect for weddings, photos and chilled vintage vibes.</p>
+    </div>
+
+    <div class="card">
+      <h3>Classic Mini</h3>
+      <span class="tag">Iconic</span>
+      <p>Small, stylish and instantly recognisable. A proper classic arrival.</p>
+    </div>
+
+    <div class="card">
+      <h3>Pink Figaro</h3>
+      <span class="tag">Cute & Quirky</span>
+      <p>Pink, retro and full of character. Perfect if you want something fun and different.</p>
+    </div>
+
+    <div class="card">
+      <h3>Mini Moke</h3>
+      <span class="tag">Summer Vibes</span>
+      <p>A rare and quirky classic, perfect for a fun and unforgettable entrance.</p>
+    </div>
+
+    <div class="card">
+      <h3>M-Sport VIP Shuttle</h3>
+      <span class="tag">Group Transport</span>
+      <p>Travel together in style — ideal for groups, prom squads, nights out and events.</p>
     </div>
 
   </div>
 </section>
 
-<!-- GALLERY -->
+<section id="book">
+  <h2>Booking Enquiry</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <input type="tel" placeholder="Phone Number" required>
+
+    <select required>
+      <option value="">Choose Vehicle</option>
+      <option>Bond Bug</option>
+      <option>VW Camper</option>
+      <option>Classic Mini</option>
+      <option>Pink Figaro</option>
+      <option>Mini Moke</option>
+      <option>M-Sport VIP Shuttle</option>
+      <option>Not sure yet</option>
+    </select>
+
+    <input type="text" placeholder="Event Date" required>
+    <input type="text" placeholder="Pickup Location" required>
+    <textarea rows="5" placeholder="Tell us about the event..."></textarea>
+
+    <button type="submit">Send Booking Request</button>
+  </form>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Message us on Facebook for quickest replies.</p>
+  <p><strong>Wacky Wheels Hire</strong></p>
+</section>
+
+<footer>
+  <p>© 2026 Wacky Wheels Hire</p>
+</footer>
+
 <div id="gallery" class="gallery">
   <span class="close" onclick="closeGallery()">&times;</span>
-
-  <div id="gallery" class="gallery">
-  <span class="close" onclick="closeGallery()">&times;</span>
-
-  <button onclick="changeImage(-1)" class="arrow left">&#10094;</button>
-
-  <img id="mainImage" src="bug1.jpeg" style="max-width:90%; max-height:80%; border-radius:10px;">
-
-  <button onclick="changeImage(1)" class="arrow right">&#10095;</button>
-
+  <button class="arrow left" onclick="changeImage(-1)">&#10094;</button>
+  <img id="mainImage" class="main-gallery-img" src="bug1.jpeg" alt="Bond Bug">
+  <button class="arrow right" onclick="changeImage(1)">&#10095;</button>
   <p id="counter">1 / 18</p>
 </div>
 
@@ -162,8 +292,13 @@ function closeGallery() {
 function changeImage(direction) {
   currentImage += direction;
 
-  if (currentImage < 1) currentImage = totalImages;
-  if (currentImage > totalImages) currentImage = 1;
+  if (currentImage < 1) {
+    currentImage = totalImages;
+  }
+
+  if (currentImage > totalImages) {
+    currentImage = 1;
+  }
 
   updateGallery();
 }
@@ -172,7 +307,8 @@ function updateGallery() {
   document.getElementById("mainImage").src = "bug" + currentImage + ".jpeg";
   document.getElementById("counter").innerText = currentImage + " / " + totalImages;
 }
-  let startX = 0;
+
+let startX = 0;
 
 document.getElementById("mainImage").addEventListener("touchstart", function(e) {
   startX = e.touches[0].clientX;
