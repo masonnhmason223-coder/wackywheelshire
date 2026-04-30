@@ -121,7 +121,7 @@ section {
 
     <!-- BOND BUG -->
     <div class="card">
-     <img src="bug1.jpeg" onclick="openGallery()">
+    <img src="bug1.jpeg" onclick="openGallery()">
       <h3>Bond Bug</h3>
       <p>Something completely different. Guaranteed attention.</p>
     </div>
@@ -133,35 +133,44 @@ section {
 <div id="gallery" class="gallery">
   <span class="close" onclick="closeGallery()">&times;</span>
 
-  <div style="text-align:center;">
-    <img src="bug1.jpeg">
-<img src="bug2.jpeg">
-<img src="bug3.jpeg">
-<img src="bug4.jpeg">
-<img src="bug5.jpeg">
-<img src="bug6.jpeg">
-<img src="bug7.jpeg">
-<img src="bug8.jpeg">
-<img src="bug9.jpeg">
-<img src="bug10.jpeg">
-<img src="bug11.jpeg">
-<img src="bug12.jpeg">
-<img src="bug13.jpeg">
-<img src="bug14.jpeg">
-<img src="bug15.jpeg">
-<img src="bug16.jpeg">
-<img src="bug17.jpeg">
-<img src="bug18.jpeg">
-  </div>
+  <div id="gallery" class="gallery">
+  <span class="close" onclick="closeGallery()">&times;</span>
+
+  <button onclick="changeImage(-1)" class="arrow left">&#10094;</button>
+
+  <img id="mainImage" src="bug1.jpeg" style="max-width:90%; max-height:80%; border-radius:10px;">
+
+  <button onclick="changeImage(1)" class="arrow right">&#10095;</button>
+
+  <p id="counter">1 / 18</p>
 </div>
 
 <script>
+let currentImage = 1;
+const totalImages = 18;
+
 function openGallery() {
-  document.getElementById("gallery").style.display = "block";
+  currentImage = 1;
+  updateGallery();
+  document.getElementById("gallery").style.display = "flex";
 }
 
 function closeGallery() {
   document.getElementById("gallery").style.display = "none";
+}
+
+function changeImage(direction) {
+  currentImage += direction;
+
+  if (currentImage < 1) currentImage = totalImages;
+  if (currentImage > totalImages) currentImage = 1;
+
+  updateGallery();
+}
+
+function updateGallery() {
+  document.getElementById("mainImage").src = "bug" + currentImage + ".jpeg";
+  document.getElementById("counter").innerText = currentImage + " / " + totalImages;
 }
 </script>
 
