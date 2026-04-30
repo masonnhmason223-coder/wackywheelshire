@@ -157,6 +157,47 @@
   </form>
 
 </section>
+<div id="gallery" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:black; overflow:auto; z-index:999;">
+  <span onclick="closeGallery()" style="position:absolute; top:20px; right:40px; font-size:40px; color:white; cursor:pointer;">&times;</span>
+  
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; padding-top:80px;">
+    <img src="bug1.jpg" class="gallery-img">
+    <img src="bug2.jpg" class="gallery-img">
+    <img src="bug3.jpg" class="gallery-img">
+    <img src="bug4.jpg" class="gallery-img">
+    <img src="bug5.jpg" class="gallery-img">
+    <img src="bug6.jpg" class="gallery-img">
+    <img src="bug7.jpg" class="gallery-img">
+    <img src="bug8.jpg" class="gallery-img">
+    <img src="bug9.jpg" class="gallery-img">
+    <img src="bug10.jpg" class="gallery-img">
+    <img src="bug11.jpg" class="gallery-img">
+    <img src="bug12.jpg" class="gallery-img">
+    <img src="bug13.jpg" class="gallery-img">
+    <img src="bug14.jpg" class="gallery-img">
+    <img src="bug15.jpg" class="gallery-img">
+    <img src="bug16.jpg" class="gallery-img">
+    <img src="bug17.jpg" class="gallery-img">
+    <img src="bug18.jpg" class="gallery-img">
+  </div>
+</div>
 
+<script>
+function openGallery() {
+  document.getElementById("gallery").style.display = "block";
+}
+
+function closeGallery() {
+  document.getElementById("gallery").style.display = "none";
+}
+</script>
+
+<style>
+.gallery-img {
+  width: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+</style>
 </body>
 </html>
