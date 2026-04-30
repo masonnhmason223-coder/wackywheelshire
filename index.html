@@ -1,142 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Wacky Wheels</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      background: #111;
-      color: white;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wacky Wheels Hire</title>
 
-    header {
-      background: black;
-      padding: 20px;
-      text-align: center;
-    }
+<style>
+body {
+  margin:0;
+  font-family:Arial;
+  background:#111;
+  color:white;
+}
 
-    header h1 {
-      color: #ffcc00;
-      margin: 0;
-    }
+header {
+  text-align:center;
+  padding:40px;
+  background:#000;
+}
 
-    nav {
-      background: #222;
-      padding: 10px;
-      text-align: center;
-    }
+header h1 {
+  color:#ffcc00;
+}
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+nav {
+  text-align:center;
+  background:#222;
+  padding:10px;
+}
 
-    section {
-      padding: 40px 20px;
-      text-align: center;
-    }
+nav a {
+  color:white;
+  margin:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    .vehicles {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
+section {
+  padding:40px;
+  text-align:center;
+}
 
-    .card {
-      background: #222;
-      border-radius: 10px;
-      overflow: hidden;
-    }
+.vehicles {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+}
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+.card {
+  background:#222;
+  border-radius:10px;
+  width:260px;
+  overflow:hidden;
+}
 
-    .card h3 {
-      margin: 10px;
-      color: #ffcc00;
-    }
+.card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  cursor:pointer;
+}
 
-    .card p {
-      padding: 0 10px 10px;
-    }
+.card h3 {
+  color:#ffcc00;
+}
 
-    form {
-      background: #222;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 400px;
-      margin: auto;
-    }
+.gallery {
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  overflow:auto;
+  padding-top:60px;
+  z-index:999;
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-      border-radius: 5px;
-      border: none;
-    }
+.gallery img {
+  width:300px;
+  margin:10px;
+  border-radius:10px;
+}
 
-    button {
-      background: #ffcc00;
-      padding: 10px;
-      width: 100%;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  </style>
+.close {
+  position:fixed;
+  top:20px;
+  right:30px;
+  font-size:40px;
+  color:white;
+  cursor:pointer;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>🚘 Wacky Wheels</h1>
+  <h1>🚘 Wacky Wheels Hire</h1>
   <p>Proms • Weddings • Special Events</p>
 </header>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#vehicles">Vehicles</a>
-  <a href="#book">Book</a>
+  <a href="#">Home</a>
+  <a href="#">Vehicles</a>
+  <a href="#">Book</a>
 </nav>
 
-<section id="home">
+<section>
   <h2>Make Your Entrance Unforgettable</h2>
-  <p>Stand out at your prom or event with one of our unique vehicles.</p>
+  <p>Stand out at your prom or event with something different.</p>
 </section>
 
-<section id="vehicles">
+<section>
   <h2>Our Vehicles</h2>
 
   <div class="vehicles">
 
+    <!-- BOND BUG -->
     <div class="card">
-      <img src="camper.jpg">
-      <h3>VW Camper</h3>
-      <p>Classic retro style – perfect for weddings & chilled vibes.</p>
-    </div>
-
-    <div class="card">
-      <img src="mini.jpg">
-      <h3>Classic Mini</h3>
-      <p>Small, stylish, and iconic. Perfect prom arrival.</p>
-    </div>
-
-    <div class="vehicle-card">
-  <img src="bug1.jpg" alt="Bond Bug" onclick="openGallery()">
-  <h3>Bond Bug</h3>
-  <p>Something completely different. Guaranteed attention.</p>
-</div>
-
-    <div class="card">
-      <img src="bug.jpg">
+      <img src="bug1.jpg" onclick="openGallery()">
       <h3>Bond Bug</h3>
       <p>Something completely different. Guaranteed attention.</p>
     </div>
@@ -144,41 +129,29 @@
   </div>
 </section>
 
-<section id="book">
-  <h2>Book Now</h2>
+<!-- GALLERY -->
+<div id="gallery" class="gallery">
+  <span class="close" onclick="closeGallery()">&times;</span>
 
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <input type="text" placeholder="Event Date" required>
-    <input type="text" placeholder="Pickup Location" required>
-    <textarea placeholder="Extra details..."></textarea>
-    <button type="submit">Send Booking Request</button>
-  </form>
-
-</section>
-<div id="gallery" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:black; overflow:auto; z-index:999;">
-  <span onclick="closeGallery()" style="position:absolute; top:20px; right:40px; font-size:40px; color:white; cursor:pointer;">&times;</span>
-  
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; padding-top:80px;">
-    <img src="bug1.jpg" class="gallery-img">
-    <img src="bug2.jpg" class="gallery-img">
-    <img src="bug3.jpg" class="gallery-img">
-    <img src="bug4.jpg" class="gallery-img">
-    <img src="bug5.jpg" class="gallery-img">
-    <img src="bug6.jpg" class="gallery-img">
-    <img src="bug7.jpg" class="gallery-img">
-    <img src="bug8.jpg" class="gallery-img">
-    <img src="bug9.jpg" class="gallery-img">
-    <img src="bug10.jpg" class="gallery-img">
-    <img src="bug11.jpg" class="gallery-img">
-    <img src="bug12.jpg" class="gallery-img">
-    <img src="bug13.jpg" class="gallery-img">
-    <img src="bug14.jpg" class="gallery-img">
-    <img src="bug15.jpg" class="gallery-img">
-    <img src="bug16.jpg" class="gallery-img">
-    <img src="bug17.jpg" class="gallery-img">
-    <img src="bug18.jpg" class="gallery-img">
+  <div style="text-align:center;">
+    <img src="bug1.jpg">
+    <img src="bug2.jpg">
+    <img src="bug3.jpg">
+    <img src="bug4.jpg">
+    <img src="bug5.jpg">
+    <img src="bug6.jpg">
+    <img src="bug7.jpg">
+    <img src="bug8.jpg">
+    <img src="bug9.jpg">
+    <img src="bug10.jpg">
+    <img src="bug11.jpg">
+    <img src="bug12.jpg">
+    <img src="bug13.jpg">
+    <img src="bug14.jpg">
+    <img src="bug15.jpg">
+    <img src="bug16.jpg">
+    <img src="bug17.jpg">
+    <img src="bug18.jpg">
   </div>
 </div>
 
@@ -192,12 +165,5 @@ function closeGallery() {
 }
 </script>
 
-<style>
-.gallery-img {
-  width: 300px;
-  margin: 10px;
-  border-radius: 10px;
-}
-</style>
 </body>
 </html>
