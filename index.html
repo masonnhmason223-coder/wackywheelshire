@@ -292,15 +292,13 @@ footer {
 </div>
 
 <script>
-let currentImage = 1;
-const totalImages = 18;
-
-function openGallery() {
+function openGallery(set, total) {
+  currentSet = set;
+  totalImages = total;
   currentImage = 1;
   updateGallery();
   document.getElementById("gallery").style.display = "flex";
-}
-
+};
 function closeGallery() {
   document.getElementById("gallery").style.display = "none";
 }
