@@ -209,18 +209,17 @@ footer {
   <div class="vehicles">
 
     <div class="card">
-      <img src="bug1.jpeg" alt="Bond Bug" onclick="openGallery()">
+      <img src="bug1.jpeg" alt="Bond Bug" onclick="openGallery('bug', 18)">
       <h3>Bond Bug</h3>
       <span class="tag">Proper Head Turner</span>
       <p>Something completely different. Bright, bold, rare and guaranteed to get people looking.</p>
     </div>
-
-    <div class="card">
-      <h3>VW Camper</h3>
-      <span class="tag">Retro Classic</span>
-      <p>Classic retro style — perfect for weddings, photos and chilled vintage vibes.</p>
-    </div>
-
+<div class="card">
+  <img src="vw1.jpeg" alt="VW Camper" onclick="openGallery('vw', 4)">
+  <h3>VW Camper</h3>
+  <span class="tag">Retro Classic</span>
+  <p>Classic retro style — perfect for weddings, photos and chilled vintage vibes.</p>
+</div>
     <div class="card">
       <h3>Classic Mini</h3>
       <span class="tag">Iconic</span>
@@ -321,7 +320,7 @@ function changeImage(direction) {
 }
 
 function updateGallery() {
-  document.getElementById("mainImage").src = "bug" + currentImage + ".jpeg";
+  document.getElementById("mainImage").src = currentSet + currentImage + ".jpeg";
   document.getElementById("counter").innerText = currentImage + " / " + totalImages;
 }
 
