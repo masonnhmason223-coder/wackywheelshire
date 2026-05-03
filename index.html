@@ -6,30 +6,42 @@
 <title>Wacky Wheels Hire</title>
 
 <style>
-  .navbar {
+
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* NAVBAR */
+.navbar {
   position: sticky;
   top: 0;
   z-index: 9999;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #111;
-  padding: 14px 22px;
-  border-bottom: 2px solid #1877f2;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(10px);
+  padding: 15px 25px;
 }
 
 .logo {
-  color: white;
   font-size: 22px;
   font-weight: bold;
 }
 
 .nav-links {
   display: flex;
-  gap: 22px;
+  gap: 20px;
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-links a {
@@ -40,143 +52,75 @@
 
 .hamburger {
   display: none;
-  font-size: 30px;
+  font-size: 28px;
   background: none;
   border: none;
   color: white;
-  cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 58px;
-    left: 0;
-    width: 100%;
-    background: #111;
-    text-align: center;
-    padding: 15px 0;
-    border-bottom: 2px solid #1877f2;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-}
-  .fb-button {
-  display: inline-block;
-  background: #1877f2;
-  color: white;
-  padding: 12px 20px;
-  margin-top: 10px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-.fb-button:hover {
-  background: #145dc1;
-}
-body {
-  <nav class="navbar">
-  <div class="logo">Wacky Wheels Hire</div>
-
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#vehicles">Vehicles</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: white;
-}
-header {
-  position: relative;
+/* HERO */
+.hero {
+  height: 80vh;
   background: url('banner.jpeg.jpg') center/cover no-repeat;
-  background-position: center top;
-  height: 70vh;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-  header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-}
-  header h1,
-header p {
-  position: relative;
-  z-index: 1;
-}
-header:hover {
-  transform: scale(1.05);
-}
 
-header h1 {
+.hero-content h1 {
+  font-size: 45px;
   color: #ffcc00;
-  margin: 0;
 }
 
-nav {
-  background: #222;
-  text-align: center;
-  padding: 15px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
+.cta-btn {
+  background: #ffcc00;
+  color: black;
+  padding: 14px 30px;
+  border-radius: 30px;
   font-weight: bold;
-  margin: 0 15px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
 }
 
-section {
-  padding: 45px 20px;
-  text-align: center;
+/* TRUST */
+.trust {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background: #000;
+  padding: 20px;
 }
 
+/* VEHICLES */
 .vehicles {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 25px;
   max-width: 1100px;
-  margin: 30px auto;
+  margin: auto;
 }
 
 .card {
   background: #222;
   border-radius: 14px;
   overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
 .card img {
   width: 100%;
   height: 240px;
   object-fit: cover;
-  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card img:hover {
+  transform: scale(1.05);
 }
 
 .card h3 {
   color: #ffcc00;
-  font-size: 24px;
-}
-
-.card p {
-  padding: 0 18px 20px;
 }
 
 .tag {
@@ -184,271 +128,142 @@ section {
   color: #111;
   padding: 6px 12px;
   border-radius: 20px;
-  font-weight: bold;
 }
 
-form {
+/* FORM */
+.booking-box {
   background: #222;
-  padding: 25px;
-  border-radius: 14px;
-  max-width: 500px;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 600px;
   margin: auto;
 }
 
 input, textarea, select {
   width: 100%;
-  padding: 13px;
+  padding: 12px;
   margin: 8px 0;
-  border: none;
   border-radius: 8px;
+  border: none;
 }
 
 button {
   background: #ffcc00;
-  border: none;
   padding: 14px;
-  width: 100%;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.gallery {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.main-gallery-img {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 12px;
-}
-
-.close {
-  position: fixed;
-  top: 20px;
-  right: 30px;
-  font-size: 45px;
-  color: white;
-  cursor: pointer;
-}
-
-.arrow {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.2);
-  color: white;
   border: none;
-  font-size: 40px;
-  padding: 10px 18px;
-  cursor: pointer;
-  border-radius: 10px;
-  width: auto;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
-.left { left: 20px; }
-.right { right: 20px; }
-
-#counter {
-  margin-top: 15px;
-  font-size: 18px;
+/* GALLERY HOVER */
+.card img:hover {
+  transform: scale(1.08);
 }
 
-footer {
-  background: #000;
-  text-align: center;
-  padding: 25px;
-  color: #aaa;
-}
-  @media screen and (max-width: 768px) {
-  header {
-    background: url('banner-mobile.jpeg.png') center/cover no-repeat;
-    height: 50vh;
+/* MOBILE */
+@media (max-width: 768px) {
+  .hamburger { display: block; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
+
+  .nav-links.show {
+    display: flex;
   }
 }
+
 </style>
 </head>
 
 <body>
 
-<header>
-</header>
-
-<nav>
-  <a href="#home">Home</a>
-  <a href="#vehicles">Vehicles</a>
-  <a href="#book">Book</a>
-  <a href="#contact">Contact</a>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">Wacky Wheels</div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#vehicles">Vehicles</a></li>
+    <li><a href="#book">Book</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<section id="home">
-  <h2>Make Your Entrance Unforgettable</h2>
-  <p>Turn up in something different. From retro classics to proper head-turners.</p>
-</section>
-
-<section id="vehicles">
-  <h2>Our Vehicles</h2>
-  <p>Click the Bond Bug image to view the gallery.</p>
-
-  <div class="vehicles">
-
-    <div class="card">
-      <img src="bug1.jpeg" alt="Bond Bug" onclick="openGallery('bug', 18)">
-      <h3>Bond Bug</h3>
-      <span class="tag">Proper Head Turner</span>
-      <p>Something completely different. Bright, bold, rare and guaranteed to get people looking.</p>
-    </div>
-<div class="card">
-  <img src="vw1.jpeg" alt="VW Camper" onclick="openGallery('vw', 4)">
-  <h3>VW Camper</h3>
-  <span class="tag">Retro Classic</span>
-  <p>Classic retro style — perfect for weddings, photos and chilled vintage vibes.</p>
-</div>
-    <div class="card">
-      <h3>Classic Mini</h3>
-      <span class="tag">Iconic</span>
-      <p>Small, stylish and instantly recognisable. A proper classic arrival.</p>
-    </div>
-
-    <div class="card">
-      <h3>Pink Figaro</h3>
-      <span class="tag">Cute & Quirky</span>
-      <p>Pink, retro and full of character. Perfect if you want something fun and different.</p>
-    </div>
-
-    <div class="card">
-      <h3>Mini Moke</h3>
-      <span class="tag">Summer Vibes</span>
-      <p>A rare and quirky classic, perfect for a fun and unforgettable entrance.</p>
-    </div>
-
-    <div class="card">
-      <h3>M-Sport VIP Shuttle</h3>
-      <span class="tag">Group Transport</span>
-      <p>Travel together in style — ideal for groups, prom squads, nights out and events.</p>
-    </div>
-
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Arrive in Style</h1>
+    <p>Luxury & unique vehicle hire</p>
+    <a href="#book" class="cta-btn">Get a Quote</a>
   </div>
 </section>
 
+<!-- TRUST -->
+<section class="trust">
+  <p>✔ Fully Insured</p>
+  <p>✔ DBS Checked</p>
+  <p>✔ Reliable Service</p>
+</section>
+
+<!-- VEHICLES -->
+<section id="vehicles">
+  <h2>Our Vehicles</h2>
+
+  <div class="vehicles">
+    <div class="card">
+      <img src="bug1.jpeg">
+      <h3>Bond Bug</h3>
+      <span class="tag">Head Turner</span>
+    </div>
+
+    <div class="card">
+      <img src="vw1.jpeg">
+      <h3>VW Camper</h3>
+      <span class="tag">Retro</span>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
 <section id="book">
-  <h2>Booking Enquiry</h2>
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <input type="tel" placeholder="Phone Number" required>
+  <div class="booking-box">
+    <h2>Booking Enquiry</h2>
 
-    <select required>
-      <option value="">Choose Vehicle</option>
-      <option>Bond Bug</option>
-      <option>VW Camper</option>
-      <option>Classic Mini</option>
-      <option>Pink Figaro</option>
-      <option>Mini Moke</option>
-      <option>M-Sport VIP Shuttle</option>
-      <option>Not sure yet</option>
-    </select>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Phone" required>
 
-    <input type="text" placeholder="Event Date" required>
-    <input type="text" placeholder="Pickup Location" required>
-    <textarea rows="5" placeholder="Tell us about the event..."></textarea>
+      <select>
+        <option>Choose Vehicle</option>
+      </select>
 
-    <button type="submit">Send Booking Request</button>
-  </form>
+      <textarea placeholder="Details"></textarea>
+
+      <button>Send Request</button>
+    </form>
+  </div>
 </section>
 
-
-</section>
+<!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
-  <p>Message us on Facebook for quickest replies.</p>
-  <p><strong>Wacky Wheels Hire</strong></p>
-
-  <a href="https://www.facebook.com/profile.php?id=61589080199438" target="_blank" class="fb-button">
-    Message us on Facebook
-  </a>
+  <a href="#" class="cta-btn">Message on Facebook</a>
 </section>
-<footer>
-  <p>© 2026 Wacky Wheels Hire</p>
-</footer>
 
-<div id="gallery" class="gallery">
-  <span class="close" onclick="closeGallery()">&times;</span>
-  <button class="arrow left" onclick="changeImage(-1)">&#10094;</button>
-  <img id="mainImage" class="main-gallery-img" src="bug1.jpeg" alt="Bond Bug">
-  <button class="arrow right" onclick="changeImage(1)">&#10095;</button>
-  <p id="counter">1 / 18</p>
-</div>
-
-<script>
-function openGallery(set, total) {
-  currentSet = set;
-  totalImages = total;
-  currentImage = 1;
-  updateGallery();
-  document.getElementById("gallery").style.display = "flex";
-};
-function closeGallery() {
-  document.getElementById("gallery").style.display = "none";
-}
-
-function changeImage(direction) {
-  currentImage += direction;
-
-  if (currentImage < 1) {
-    currentImage = totalImages;
-  }
-
-  if (currentImage > totalImages) {
-    currentImage = 1;
-  }
-
-  updateGallery();
-}
-
-function updateGallery() {
-  document.getElementById("mainImage").src = currentSet + currentImage + ".jpeg";
-  document.getElementById("counter").innerText = currentImage + " / " + totalImages;
-}
-
-let startX = 0;
-
-document.getElementById("mainImage").addEventListener("touchstart", function(e) {
-  startX = e.touches[0].clientX;
-});
-
-document.getElementById("mainImage").addEventListener("touchend", function(e) {
-  let endX = e.changedTouches[0].clientX;
-
-  if (startX - endX > 50) {
-    changeImage(1);
-  } else if (endX - startX > 50) {
-    changeImage(-1);
-  }
-});
-
-document.addEventListener("keydown", function(e) {
-  if (document.getElementById("gallery").style.display === "flex") {
-    if (e.key === "ArrowRight") changeImage(1);
-    if (e.key === "ArrowLeft") changeImage(-1);
-    if (e.key === "Escape") closeGallery();
-  }
-});
-</script>
 <script>
 function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("show");
 }
 </script>
+
 </body>
 </html>
