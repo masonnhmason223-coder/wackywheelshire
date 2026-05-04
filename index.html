@@ -78,14 +78,18 @@
 <footer><p>© 2026 Wacky Wheels Hire. All rights reserved.</p></footer>
   <footer><p>© 2026 Wacky Wheels Hire. All rights reserved.</p></footer>
 
-<div class="drive-car">
+<<div class="drive-car">
   <img src="drivebug1.png" alt="Bug Car">
+
+  <!-- spinning wheels -->
+  <div class="wheel wheel-front"></div>
+  <div class="wheel wheel-back"></div>
 </div>
 
 <style>
 .drive-car {
   position: fixed;
-  top: 65px;
+  top: 55px; /* 👈 moved higher onto your line */
   left: -300px;
   z-index: 9999;
   animation: driveCar 8s linear forwards;
@@ -95,10 +99,10 @@
 .drive-car img {
   width: 200px;
   display: block;
-  transform: translateY(8px);
+  transform: translateY(10px);
 }
 
-/* shadow on the line */
+/* shadow */
 .drive-car::after {
   content: "";
   position: absolute;
@@ -111,18 +115,40 @@
   filter: blur(3px);
 }
 
+/* wheels */
+.wheel {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 4px solid #111;
+  border-radius: 50%;
+  background: radial-gradient(circle, #666 30%, #222 70%);
+  animation: spin 0.25s linear infinite;
+}
+
+/* tweak these if needed */
+.wheel-front {
+  bottom: 6px;
+  right: 42px;
+}
+
+.wheel-back {
+  bottom: 6px;
+  left: 58px;
+}
+
+/* movement (NO fade now) */
 @keyframes driveCar {
   from {
     transform: translateX(0);
-    opacity: 1;
   }
   to {
     transform: translateX(calc(100vw + 500px));
-    opacity: 0;
   }
 }
-</style>
 
-<script src="main.js"></script>
-</body>
-</html>
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+</style>
