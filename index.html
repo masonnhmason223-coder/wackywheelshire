@@ -112,8 +112,14 @@
 }
 
 @keyframes driveCar {
-  from { transform: translateX(0); }
-  to { transform: translateX(140vw); }
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(calc(100vw + 500px));
+    opacity: 0;
+  }
 }
 </style>
 
