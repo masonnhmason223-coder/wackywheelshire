@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wacky Wheels Hire</title>
 
-  <!-- Facebook icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -39,11 +37,9 @@
     :root {
       --gold: #d4af37;
       --gold-dark: #b8962e;
-      --dark: #111;
       --soft: #cccccc;
     }
 
-    /* HEADER */
     header {
       position: fixed;
       top: 0;
@@ -94,7 +90,6 @@
       cursor: pointer;
     }
 
-    /* MOBILE MENU */
     .mobile-menu {
       position: fixed;
       top: 0;
@@ -128,7 +123,6 @@
       cursor: pointer;
     }
 
-    /* BUTTONS */
     .btn,
     button {
       display: inline-block;
@@ -188,13 +182,12 @@
       margin-right: 8px;
     }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       padding: 130px 20px 70px;
       background:
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.9)),
-        url("hero.jpg") center/cover no-repeat;
+        url("banner.jpeg.jpg") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -246,7 +239,6 @@
       flex-wrap: wrap;
     }
 
-    /* TRUST BAR */
     .trust-bar {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -262,7 +254,6 @@
       border-right: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* SECTIONS */
     .section {
       max-width: 1200px;
       margin: auto;
@@ -300,7 +291,6 @@
       font-size: 18px;
     }
 
-    /* VEHICLES */
     .cards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -364,7 +354,6 @@
       line-height: 1.6;
     }
 
-    /* FORM */
     form {
       max-width: 700px;
       margin: auto;
@@ -391,7 +380,6 @@
       min-height: 130px;
     }
 
-    /* FLOATING BUTTONS */
     .floating-call,
     .floating-fb {
       position: fixed;
@@ -427,7 +415,6 @@
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* LIGHTBOX */
     .lightbox {
       display: none;
       position: fixed;
@@ -437,6 +424,8 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
+      max-width: 100vw;
+      overflow: hidden;
     }
 
     .lightbox.active {
@@ -450,20 +439,43 @@
       border-radius: 18px;
     }
 
-    .lightbox-close {
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.14);
       color: white;
       border: none;
-      font-size: 34px;
+      font-size: 36px;
       padding: 10px 18px;
       border-radius: 14px;
       cursor: pointer;
+      z-index: 20001;
     }
 
-    /* MOBILE */
+    .lightbox-close {
+      top: 20px;
+      right: 20px;
+    }
+
+    .lightbox-prev {
+      left: 20px;
+    }
+
+    .lightbox-next {
+      right: 20px;
+    }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 24px;
+      color: white;
+      font-weight: 800;
+      background: rgba(0,0,0,0.55);
+      padding: 8px 14px;
+      border-radius: 20px;
+    }
+
     @media (max-width: 768px) {
       .desktop-nav {
         display: none;
@@ -513,6 +525,14 @@
 
       form {
         padding: 24px 18px;
+      }
+
+      .lightbox-prev {
+        left: 8px;
+      }
+
+      .lightbox-next {
+        right: 8px;
       }
     }
   </style>
@@ -580,13 +600,13 @@
   <section class="section" id="vehicles">
     <h2>Our Vehicles</h2>
     <p class="section-text">
-      Click a vehicle image to open it larger. Hover over images for a closer look.
+      Click a vehicle image to open the full gallery. Hover over images for a closer look.
     </p>
 
     <div class="cards">
       <div class="vehicle-card">
-        <div class="vehicle-img-wrap" onclick="openLightbox('bond-bug.jpg')">
-          <img src="bond-bug.jpg" alt="Bond Bug">
+        <div class="vehicle-img-wrap" onclick="openGallery(bugImages, 0)">
+          <img src="bug1.jpeg" alt="Bond Bug">
         </div>
         <div class="vehicle-content">
           <h3>Bond Bug</h3>
@@ -599,8 +619,8 @@
       </div>
 
       <div class="vehicle-card">
-        <div class="vehicle-img-wrap" onclick="openLightbox('vw-camper.jpg')">
-          <img src="vw-camper.jpg" alt="VW Camper">
+        <div class="vehicle-img-wrap" onclick="openGallery(vwImages, 0)">
+          <img src="vw1.jpeg" alt="VW Camper">
         </div>
         <div class="vehicle-content">
           <h3>VW Camper</h3>
@@ -651,7 +671,6 @@
     <p>© 2026 Wacky Wheels Hire. All rights reserved.</p>
   </footer>
 
-  <!-- Floating buttons -->
   <a href="https://www.facebook.com/YOURPAGE" target="_blank" class="floating-fb">
     <i class="fa-brands fa-facebook-f"></i>
   </a>
@@ -660,13 +679,48 @@
     <i class="fa-solid fa-phone"></i>
   </a>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <button class="lightbox-prev" onclick="prevImage()">‹</button>
     <img id="lightboxImg" src="" alt="Vehicle image">
+    <button class="lightbox-next" onclick="nextImage()">›</button>
+    <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
   </div>
 
   <script>
+    const bugImages = [
+      "bug1.jpeg",
+      "bug2.jpeg",
+      "bug3.jpeg",
+      "bug4.jpeg",
+      "bug5.jpeg",
+      "bug6.jpeg",
+      "bug7.jpeg",
+      "bug8.jpeg",
+      "bug9.jpeg",
+      "bug10.jpeg",
+      "bug11.jpeg",
+      "bug12.jpeg",
+      "bug13.jpeg",
+      "bug14.jpeg",
+      "bug15.jpeg",
+      "bug16.jpeg",
+      "bug17.jpeg",
+      "bug18.jpeg"
+    ];
+
+    const vwImages = [
+      "vw1.jpeg",
+      "vw2.jpeg",
+      "vw3.jpeg",
+      "vw4.jpeg",
+      "vw5.jpeg",
+      "vw6.jpeg"
+    ];
+
+    let currentImages = [];
+    let currentIndex = 0;
+
     function openMenu() {
       document.getElementById("mobileMenu").classList.add("active");
     }
@@ -675,9 +729,27 @@
       document.getElementById("mobileMenu").classList.remove("active");
     }
 
-    function openLightbox(imageSrc) {
-      document.getElementById("lightboxImg").src = imageSrc;
+    function openGallery(images, index) {
+      currentImages = images;
+      currentIndex = index;
+      showImage();
       document.getElementById("lightbox").classList.add("active");
+    }
+
+    function showImage() {
+      document.getElementById("lightboxImg").src = currentImages[currentIndex];
+      document.getElementById("lightboxCounter").textContent =
+        (currentIndex + 1) + " / " + currentImages.length;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      showImage();
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      showImage();
     }
 
     function closeLightbox() {
@@ -687,6 +759,14 @@
     document.getElementById("lightbox").addEventListener("click", function(e) {
       if (e.target.id === "lightbox") {
         closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", function(e) {
+      if (document.getElementById("lightbox").classList.contains("active")) {
+        if (e.key === "ArrowRight") nextImage();
+        if (e.key === "ArrowLeft") prevImage();
+        if (e.key === "Escape") closeLightbox();
       }
     });
   </script>
