@@ -8,160 +8,521 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-  font-family:Arial;
-  background:#050505;
-  color:#fff;
-  overflow-x:hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-img{width:100%;display:block;}
-
-:root{
-  --gold:#d4af37;
-  --gold-dark:#b8962e;
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background: #050505;
+  color: #fff;
+  scroll-behavior: smooth;
 }
 
-/* NAV */
-header{
-  position:fixed;
-  width:100%;
-  top:0;
-  background:#050505ee;
-  z-index:9999;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-.nav{
-  display:flex;
-  justify-content:space-between;
-  padding:15px;
-  max-width:1200px;
-  margin:auto;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.logo span{color:var(--gold);}
+:root {
+  --gold: #d4af37;
+  --gold-dark: #b8962e;
+  --soft: #cccccc;
+}
 
-.desktop-nav{display:flex;gap:20px;align-items:center;}
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(5,5,5,0.92);
+  border-bottom: 1px solid rgba(212,175,55,0.25);
+  z-index: 9999;
+}
 
-.menu-btn{
-  display:none;
-  font-size:28px;
-  background:none;
-  color:white;
-  border:none;
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  font-weight: 700;
+}
+
+.desktop-nav a:hover {
+  color: var(--gold);
+}
+
+.menu-btn {
+  display: none;
+  font-size: 30px;
+  background: none;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+  padding: 4px 12px;
+  cursor: pointer;
 }
 
 /* MOBILE MENU */
-.mobile-menu{
-  position:fixed;
-  right:-100%;
-  top:0;
-  width:75%;
-  height:100vh;
-  background:#050505;
-  transition:0.3s;
-  padding:80px 20px;
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 75%;
+  max-width: 320px;
+  height: 100vh;
+  background: #050505;
+  z-index: 10000;
+  padding: 90px 30px;
+  transition: right 0.3s ease;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.7);
 }
-.mobile-menu.active{right:0;}
 
-/* BUTTON */
-.btn{
-  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
-  color:black;
-  padding:12px 22px;
-  border-radius:30px;
-  font-weight:bold;
-  display:inline-block;
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu a {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 26px;
+}
+
+.close-menu {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 38px;
+  cursor: pointer;
+}
+
+/* BUTTONS */
+.btn,
+button {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: black;
+  border: none;
+  border-radius: 35px;
+  padding: 14px 28px;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.btn:hover,
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212,175,55,0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: black;
+}
+
+.btn i {
+  margin-right: 8px;
 }
 
 /* HERO */
-.hero{
-  padding-top:120px;
-  text-align:center;
-  padding-bottom:60px;
-  background:url("banner.jpeg.jpg") center/cover;
+.hero {
+  min-height: 100vh;
+  padding: 130px 20px 70px;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.85)),
+    url("banner.jpeg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.hero span{color:var(--gold);}
-
-/* SECTION */
-.section{padding:60px 20px;text-align:center;}
-
-/* CARDS */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
+.hero-box {
+  max-width: 760px;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 28px;
+  padding: 44px 26px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.65);
 }
 
-.vehicle-card{
-  background:#111;
-  border-radius:20px;
-  overflow:hidden;
+.tagline {
+  color: var(--gold);
+  border: 1px solid rgba(212,175,55,0.55);
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
-.vehicle-content{padding:20px;}
-.vehicle-content h3{color:var(--gold);}
+h1 {
+  font-size: clamp(40px, 8vw, 78px);
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+h1 span,
+h2 span {
+  color: var(--gold);
+}
+
+.hero p {
+  color: var(--soft);
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* TRUST BAR */
+.trust-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #101010;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.trust-item {
+  padding: 22px;
+  text-align: center;
+  font-weight: 800;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+/* SECTIONS */
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+h2 {
+  color: var(--gold);
+  font-size: clamp(32px, 6vw, 52px);
+  margin-bottom: 16px;
+}
+
+.section-text {
+  color: var(--soft);
+  max-width: 720px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+.feature-box {
+  max-width: 760px;
+  margin: auto;
+  background: linear-gradient(145deg, #181818, #090909);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 28px;
+  padding: 42px 26px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+}
+
+.feature-box p {
+  color: var(--soft);
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+/* VEHICLES */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.vehicle-card {
+  background: #131313;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+  transition: 0.3s ease;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212,175,55,0.45);
+}
+
+.vehicle-img-wrap {
+  overflow: hidden;
+  cursor: pointer;
+  background: #222;
+}
+
+.vehicle-card img {
+  width: 100%;
+  height: 285px;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+.vehicle-card:hover img {
+  transform: scale(1.08);
+}
+
+.vehicle-content {
+  padding: 28px;
+}
+
+.vehicle-content h3 {
+  color: var(--gold);
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: black;
+  font-weight: 800;
+  padding: 7px 16px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.vehicle-content p {
+  color: var(--soft);
+  line-height: 1.6;
+}
+
+/* FORM */
+form {
+  max-width: 700px;
+  margin: auto;
+  background: #121212;
+  padding: 34px;
+  border-radius: 28px;
+  border: 1px solid rgba(212,175,55,0.25);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 16px;
+  background: #050505;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: white;
+  border-radius: 14px;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 130px;
+}
+
+/* FLOATING BUTTONS */
+.floating-call,
+.floating-fb {
+  position: fixed;
+  right: 18px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  z-index: 9998;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.45);
+}
+
+.floating-call {
+  bottom: 18px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: black;
+}
+
+.floating-fb {
+  bottom: 88px;
+  background: #1877f2;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 34px 20px;
+  color: #999;
+  background: #030303;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
 
 /* LIGHTBOX */
-.lightbox{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:#000c;
-  justify-content:center;
-  align-items:center;
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 20000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
-.lightbox.active{display:flex;}
-
-.lightbox img{
-  max-width:90%;
-  max-height:80%;
+.lightbox.active {
+  display: flex;
 }
 
-.lightbox button{
-  position:absolute;
-  background:none;
-  border:none;
-  color:white;
-  font-size:40px;
+.lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 18px;
 }
 
-/* FLOAT BUTTONS */
-.floating-call{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:var(--gold);
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: rgba(255,255,255,0.14);
+  color: white;
+  border: none;
+  font-size: 36px;
+  padding: 10px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  z-index: 20001;
 }
 
-.floating-fb{
-  position:fixed;
-  bottom:90px;
-  right:20px;
-  background:#1877f2;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.lightbox-close {
+  top: 20px;
+  right: 20px;
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 24px;
+  color: white;
+  font-weight: 800;
+  background: rgba(0,0,0,0.55);
+  padding: 8px 14px;
+  border-radius: 20px;
 }
 
 /* MOBILE */
-@media(max-width:768px){
-  .desktop-nav{display:none;}
-  .menu-btn{display:block;}
-  .cards{grid-template-columns:1fr;}
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 115px;
+  }
+
+  .hero-box {
+    padding: 34px 18px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .trust-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .vehicle-card img {
+    height: 230px;
+  }
+
+  form {
+    padding: 24px 18px;
+  }
+
+  .lightbox-prev {
+    left: 8px;
+  }
+
+  .lightbox-next {
+    right: 8px;
+  }
 }
 </style>
 </head>
@@ -171,151 +532,310 @@ header{
 <header>
   <div class="nav">
     <div class="logo">Wacky <span>Wheels</span></div>
+
     <nav class="desktop-nav">
-      <a href="#">Home</a>
+      <a href="#home">Home</a>
       <a href="#vehicles">Vehicles</a>
       <a href="#book">Book</a>
+      <a href="#contact">Contact</a>
+      <a href="#book" class="btn">Get a Quote</a>
     </nav>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <button class="menu-btn" onclick="openMenu()">☰</button>
   </div>
 </header>
 
-<div class="mobile-menu" id="menu">
-  <a href="#">Home</a>
-  <a href="#vehicles">Vehicles</a>
-  <a href="#book">Book</a>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="close-menu" onclick="closeMenu()">×</div>
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#vehicles" onclick="closeMenu()">Vehicles</a>
+  <a href="#book" onclick="closeMenu()">Book</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#book" class="btn" onclick="closeMenu()">Get a Quote</a>
 </div>
 
-<section class="hero">
-  <h1>Arrive in <span>Style</span></h1>
-  <p>Make your entrance unforgettable</p>
-  <br>
-  <a href="#book" class="btn">Get a Quote</a>
+<section class="hero" id="home">
+  <div class="hero-box">
+    <div class="tagline">RETRO VEHICLE HIRE</div>
+    <h1>Arrive in <span>Style</span></h1>
+    <p>
+      Wacky head-turners and VIP-style arrivals for proms, weddings, events,
+      photoshoots and unforgettable moments.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#book" class="btn">Get a Quote</a>
+      <a href="#vehicles" class="btn btn-outline">View Vehicles</a>
+    </div>
+  </div>
 </section>
 
-<section id="vehicles" class="section">
-<h2>Our Vehicles</h2>
-
-<div class="cards">
-
-<!-- BUG -->
-<div class="vehicle-card" onclick="openGallery(bugImages,0)">
-<img src="bug1.jpeg">
-<div class="vehicle-content"><h3>Bond Bug</h3></div>
+<div class="trust-bar">
+  <div class="trust-item">✔ Fully Insured</div>
+  <div class="trust-item">✔ Event Friendly</div>
+  <div class="trust-item">✔ Proper Head-Turners</div>
 </div>
 
-<!-- VW -->
-<div class="vehicle-card" onclick="openGallery(vwImages,0)">
-<img src="vw1.jpeg">
-<div class="vehicle-content"><h3>VW Camper</h3></div>
-</div>
-
-<!-- FIG -->
-<div class="vehicle-card" onclick="openGallery(figImages,0)">
-<img src="fig1.jpeg">
-<div class="vehicle-content"><h3>Nissan Figaro</h3></div>
-</div>
-
-<!-- MOKE -->
-<div class="vehicle-card" onclick="openGallery(mokeImages,0)">
-<img src="moke1.jpeg">
-<div class="vehicle-content"><h3>Mini Moke</h3></div>
-</div>
-
-<!-- VIP -->
-<div class="vehicle-card" onclick="openGallery(vipImages,0)">
-<img src="vipshuttle1.jpeg">
-<div class="vehicle-content"><h3>VIP Shuttle</h3></div>
-</div>
-
-<!-- TROTTERS -->
-<div class="vehicle-card" onclick="openGallery(trotterImages,0)">
-<img src="trottersvan1.jpeg">
-<div class="vehicle-content"><h3>Trotters Van</h3></div>
-</div>
-
-<!-- MINI -->
-<div class="vehicle-card" onclick="openGallery(miniImages,0)">
-<img src="mini1.jpeg">
-<div class="vehicle-content"><h3>Classic Mini</h3></div>
-</div>
-
-<!-- ESCORT -->
-<div class="vehicle-card" onclick="openGallery(escortImages,0)">
-<img src="escort1.jpeg">
-<div class="vehicle-content"><h3>Ford Escort</h3></div>
-</div>
-
-</div>
+<section class="section">
+  <div class="feature-box">
+    <h2>Make Your Entrance <span>Unforgettable</span></h2>
+    <p>
+      Turn up in something different. From retro classics to proper head-turners,
+      Wacky Wheels Hire is built for people who want the arrival to be part of the memory.
+    </p>
+  </div>
 </section>
 
-<section id="book" class="section">
-<h2>Get a Quote</h2>
-<form>
-<input placeholder="Name">
-<input placeholder="Phone">
-<textarea placeholder="Details"></textarea>
-<button class="btn">Send</button>
-</form>
+<section class="section" id="vehicles">
+  <h2>Our Vehicles</h2>
+  <p class="section-text">
+    Click a vehicle image to open the full gallery. Hover over images for a closer look.
+  </p>
+
+  <div class="cards">
+
+    <div class="vehicle-card">
+      <div class="vehicle-img-wrap" onclick="openGallery(bugImages, 0)">
+        <img src="bug1.jpeg" alt="Bond Bug">
+      </div>
+      <div class="vehicle-content">
+        <h3>Bond Bug</h3>
+        <div class="badge">Proper Head Turner</div>
+        <p>Bright, bold, rare and guaranteed to get people looking. Perfect for a statement arrival.</p>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-img-wrap" onclick="openGallery(vwImages, 0)">
+        <img src="vw1.jpeg" alt="VW Camper">
+      </div>
+      <div class="vehicle-content">
+        <h3>VW Camper</h3>
+        <div class="badge">Retro Classic</div>
+        <p>Cool, charming and full of character. Ideal for weddings, proms and quirky event arrivals.</p>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-img-wrap" onclick="openGallery(figImages, 0)">
+        <img src="fig1.jpeg" alt="Nissan Figaro">
+      </div>
+      <div class="vehicle-content">
+        <h3>Nissan Figaro</h3>
+        <div class="badge">Cute Classic</div>
+        <p>Small, stylish and full of retro charm. A lovely choice for weddings, photos and special arrivals.</p>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-img-wrap" onclick="openGallery(mokeImages, 0)">
+        <img src="moke1.jpeg" alt="Mini Moke">
+      </div>
+      <div class="vehicle-content">
+        <h3>Mini Moke</h3>
+        <div class="badge">Summer Vibes</div>
+        <p>Fun, open and properly different. Perfect for sunny-day arrivals and standout photos.</p>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-img-wrap" onclick="openGallery(vipImages, 0)">
+        <img src="vipshuttle1.jpeg" alt="VIP Shuttle">
+      </div>
+      <div class="vehicle-content">
+        <h3>VIP Shuttle</h3>
+        <div class="badge">Group Arrival</div>
+        <p>Ideal when you want the whole group to arrive together with a bit more style.</p>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-img-wrap" onclick="openGallery(trotterImages, 0)">
+        <img src="trottersvan1.jpeg" alt="Trotters Van">
+      </div>
+      <div class="vehicle-content">
+        <h3>Trotters Van</h3>
+        <div class="badge">Comedy Classic</div>
+        <p>A proper crowd-pleaser. Instantly recognisable and guaranteed to get people smiling.</p>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-img-wrap" onclick="openGallery(miniImages, 0)">
+        <img src="mini1.jpeg" alt="Classic Mini">
+      </div>
+      <div class="vehicle-content">
+        <h3>Classic Mini</h3>
+        <div class="badge">Iconic Little Legend</div>
+        <p>Small car, massive character. A timeless classic for photos, events and quirky arrivals.</p>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-img-wrap" onclick="openGallery(escortImages, 0)">
+        <img src="escort1.jpeg" alt="Ford Escort">
+      </div>
+      <div class="vehicle-content">
+        <h3>Ford Escort</h3>
+        <div class="badge">Retro Favourite</div>
+        <p>Old-school cool with proper nostalgia. Great for car fans, events and standout entrances.</p>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<a href="https://www.facebook.com/YOURPAGE" class="floating-fb">
-<i class="fa-brands fa-facebook-f"></i>
+<section class="section" id="book">
+  <h2>Get a Quote</h2>
+  <p class="section-text">
+    Tell us what you need, where you’re going and what kind of entrance you want to make.
+  </p>
+
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <input type="email" placeholder="Email Address">
+    <select>
+      <option>What vehicle are you interested in?</option>
+      <option>Bond Bug</option>
+      <option>VW Camper</option>
+      <option>Nissan Figaro</option>
+      <option>Mini Moke</option>
+      <option>VIP Shuttle</option>
+      <option>Trotters Van</option>
+      <option>Classic Mini</option>
+      <option>Ford Escort</option>
+      <option>Not sure yet</option>
+    </select>
+    <input type="date">
+    <textarea placeholder="Tell us about the event"></textarea>
+    <button type="submit">Send Enquiry</button>
+  </form>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <p class="section-text">
+    Ready to make an entrance? Drop us a message on Facebook.
+  </p>
+
+  <a href="https://www.facebook.com/YOURPAGE" target="_blank" class="btn">
+    <i class="fa-brands fa-facebook-f"></i> Message us on Facebook
+  </a>
+</section>
+
+<footer>
+  <p>© 2026 Wacky Wheels Hire. All rights reserved.</p>
+</footer>
+
+<a href="https://www.facebook.com/YOURPAGE" target="_blank" class="floating-fb">
+  <i class="fa-brands fa-facebook-f"></i>
 </a>
 
 <a href="tel:01603400400" class="floating-call">
-<i class="fa-solid fa-phone"></i>
+  <i class="fa-solid fa-phone"></i>
 </a>
 
 <div class="lightbox" id="lightbox">
-<button onclick="prev()">‹</button>
-<img id="lightboxImg">
-<button onclick="next()">›</button>
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-prev" onclick="prevImage()">‹</button>
+  <img id="lightboxImg" src="" alt="Vehicle image">
+  <button class="lightbox-next" onclick="nextImage()">›</button>
+  <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
 </div>
 
 <script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
+const bugImages = [
+  "bug1.jpeg","bug2.jpeg","bug3.jpeg","bug4.jpeg","bug5.jpeg","bug6.jpeg",
+  "bug7.jpeg","bug8.jpeg","bug9.jpeg","bug10.jpeg","bug11.jpeg","bug12.jpeg",
+  "bug13.jpeg","bug14.jpeg","bug15.jpeg","bug16.jpeg","bug17.jpeg","bug18.jpeg"
+];
+
+const vwImages = [
+  "vw1.jpeg","vw2.jpeg","vw3.jpeg","vw4.jpeg","vw5.jpeg","vw6.jpeg"
+];
+
+const figImages = [
+  "fig1.jpeg","fig2.jpeg","fig3.jpeg","fig4.jpeg","fig5.jpeg","fig6.jpeg",
+  "fig7.jpeg","fig8.jpeg","fig9.jpeg","fig10.jpeg","fig11.jpeg","fig12.jpeg",
+  "fig13.jpeg","fig14.jpeg","fig15.jpeg","fig16.jpeg","fig18.jpeg","fig19.jpeg"
+];
+
+const mokeImages = [
+  "moke1.jpeg","moke2.jpeg","moke3.jpeg","moke4.jpeg","moke5.jpeg","moke6.jpeg",
+  "moke7.jpeg","moke8.jpeg","moke9.jpeg","moke10.jpeg","moke11.jpeg",
+  "moke13.jpeg","moke14.jpeg"
+];
+
+const vipImages = [
+  "vipshuttle1.jpeg","vipshuttle2.jpeg","vipshuttle3.jpeg","vipshuttle4.jpeg",
+  "vipshuttle5.jpeg","vipshuttle6.jpeg","vipshuttle7.jpeg","vipshuttle8.jpeg",
+  "vipshuttle9.jpeg","vipshuttle10.jpeg","vipshuttle11.jpeg","vipshuttle12.jpeg",
+  "vipshuttle13.jpeg","vipshuttle14.jpeg","vipshuttle15.jpeg","vipshuttle16.jpeg",
+  "vipshuttle17.jpeg","vipshuttle18.jpeg"
+];
+
+const trotterImages = [
+  "trottersvan1.jpeg","trottersvan2.jpeg","trottersvan3.jpeg","trottersvan4.jpeg",
+  "trottersvan5.jpeg","trottersvan6.jpeg","trottersvan7.jpeg","trottersvan8.jpeg",
+  "trottersvan9.jpeg","trottersvan10.jpeg","trottersvan11.jpeg","trottersvan12.jpeg",
+  "trottersvan13.jpeg"
+];
+
+const miniImages = ["mini1.jpeg"];
+const escortImages = ["escort1.jpeg"];
+
+let currentImages = [];
+let currentIndex = 0;
+
+function openMenu() {
+  document.getElementById("mobileMenu").classList.add("active");
 }
 
-/* IMAGE SETS */
-const bugImages=[...Array(18).keys()].map(i=>`bug${i+1}.jpeg`);
-const vwImages=[...Array(6).keys()].map(i=>`vw${i+1}.jpeg`);
-const figImages=[...Array(19).keys()].map(i=>`fig${i+1}.jpeg`);
-const mokeImages=[...Array(14).keys()].map(i=>`moke${i+1}.jpeg`);
-const vipImages=[...Array(18).keys()].map(i=>`vipshuttle${i+1}.jpeg`);
-const trotterImages=[...Array(13).keys()].map(i=>`trottersvan${i+1}.jpeg`);
-const miniImages=["mini1.jpeg"];
-const escortImages=["escort1.jpeg"];
+function closeMenu() {
+  document.getElementById("mobileMenu").classList.remove("active");
+}
 
-let currentSet=[],index=0;
-
-function openGallery(set,i){
-  currentSet=set;
-  index=i;
-  show();
+function openGallery(images, index) {
+  currentImages = images;
+  currentIndex = index;
+  showImage();
   document.getElementById("lightbox").classList.add("active");
 }
 
-function show(){
-  document.getElementById("lightboxImg").src=currentSet[index];
+function showImage() {
+  document.getElementById("lightboxImg").src = currentImages[currentIndex];
+  document.getElementById("lightboxCounter").textContent =
+    (currentIndex + 1) + " / " + currentImages.length;
 }
 
-function next(){
-  index=(index+1)%currentSet.length;
-  show();
+function nextImage() {
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  showImage();
 }
 
-function prev(){
-  index=(index-1+currentSet.length)%currentSet.length;
-  show();
+function prevImage() {
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  showImage();
 }
 
-document.getElementById("lightbox").onclick=(e)=>{
-  if(e.target.id==="lightbox"){
-    e.currentTarget.classList.remove("active");
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("active");
+}
+
+document.getElementById("lightbox").addEventListener("click", function(e) {
+  if (e.target.id === "lightbox") {
+    closeLightbox();
   }
-}
+});
+
+document.addEventListener("keydown", function(e) {
+  if (document.getElementById("lightbox").classList.contains("active")) {
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
+    if (e.key === "Escape") closeLightbox();
+  }
+});
 </script>
 
 </body>
