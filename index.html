@@ -76,8 +76,47 @@
 <a href="https://www.facebook.com/YOURPAGE" target="_blank" class="floating-fb"><i class="fa-brands fa-facebook-f"></i></a>
 <a href="tel:01603400400" class="floating-call"><i class="fa-solid fa-phone"></i></a>
 <footer><p>© 2026 Wacky Wheels Hire. All rights reserved.</p></footer>
-  78 </footer>
+  <footer><p>© 2026 Wacky Wheels Hire. All rights reserved.</p></footer>
 
-</h1>
+<div class="drive-car">
+  <img src="drivebug1.png" alt="Bug Car">
+</div>
+
+<style>
+.drive-car {
+  position: fixed;
+  top: 65px;
+  left: -300px;
+  z-index: 9999;
+  animation: driveCar 8s linear forwards;
+  pointer-events: none;
+}
+
+.drive-car img {
+  width: 200px;
+  display: block;
+  transform: translateY(8px);
+}
+
+/* shadow on the line */
+.drive-car::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 60px;
+  width: 100px;
+  height: 6px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  filter: blur(3px);
+}
+
+@keyframes driveCar {
+  from { transform: translateX(0); }
+  to { transform: translateX(140vw); }
+}
+</style>
+
+<script src="main.js"></script>
 </body>
 </html>
