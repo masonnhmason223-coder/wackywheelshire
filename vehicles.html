@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicles | Wacky Wheels Hire</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html">Wacky <span>Wheels</span></a>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a><a href="vehicles.html">Vehicles</a><a href="book.html">Book</a><a href="contact.html">Contact</a><a href="book.html" class="btn">Get a Quote</a>
+    </nav>
+    <button class="menu-btn" onclick="openMenu()">☰</button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu"><div class="close-menu" onclick="closeMenu()">×</div><a href="index.html">Home</a><a href="vehicles.html">Vehicles</a><a href="book.html">Book</a><a href="contact.html">Contact</a><a href="book.html" class="btn">Get a Quote</a></div>
+
+<section class="page-hero small-hero">
+  <div class="hero-box"><div class="tagline">FULL LINE-UP</div><h1>Our <span>Vehicles</span></h1><p>Click a vehicle image to open the full gallery.</p></div>
+</section>
+
+<section class="section" id="vehicles">
+  <h2>Our Vehicles</h2>
+  <p class="section-text">Click a vehicle image to open the full gallery. Hover over images for a closer look.</p>
+  <div class="cards">
+    <div class="vehicle-card"><div class="vehicle-img-wrap" onclick="openGallery(bugImages,0)"><img src="bug1.jpeg" alt="Bond Bug"></div><div class="vehicle-content"><h3>Bond Bug</h3><div class="badge">Proper Head Turner</div><p>Bright, bold, rare and guaranteed to get people looking. Perfect for a statement arrival.</p></div></div>
+    <div class="vehicle-card"><div class="vehicle-img-wrap" onclick="openGallery(vwImages,0)"><img src="vw1.jpeg" alt="VW Camper"></div><div class="vehicle-content"><h3>VW Camper</h3><div class="badge">Retro Classic</div><p>Cool, charming and full of character. Ideal for weddings, proms and quirky event arrivals.</p></div></div>
+    <div class="vehicle-card"><div class="vehicle-img-wrap" onclick="openGallery(figImages,0)"><img src="fig1.jpeg" alt="Nissan Figaro"></div><div class="vehicle-content"><h3>Nissan Figaro</h3><div class="badge">Cute Classic</div><p>Small, stylish and full of retro charm. A lovely choice for weddings, photos and special arrivals.</p></div></div>
+    <div class="vehicle-card"><div class="vehicle-img-wrap" onclick="openGallery(mokeImages,9)"><img src="moke10.jpeg" alt="Mini Moke"></div><div class="vehicle-content"><h3>Mini Moke</h3><div class="badge">Summer Vibes</div><p>Fun, open and properly different. Perfect for sunny-day arrivals and standout photos.</p></div></div>
+    <div class="vehicle-card"><div class="vehicle-img-wrap" onclick="openGallery(vipImages,0)"><img src="vipshuttle1.jpeg" alt="VIP Shuttle"></div><div class="vehicle-content"><h3>VIP Shuttle</h3><div class="badge">Group Arrival</div><p>Ideal when you want the whole group to arrive together with a bit more style.</p></div></div>
+    <div class="vehicle-card"><div class="vehicle-img-wrap" onclick="openGallery(trotterImages,0)"><img src="trottersvan1.jpeg" alt="Trotters Van"></div><div class="vehicle-content"><h3>Trotters Van</h3><div class="badge">Comedy Classic</div><p>A proper crowd-pleaser. Instantly recognisable and guaranteed to get people smiling.</p></div></div>
+    <div class="vehicle-card"><div class="vehicle-img-wrap" onclick="openGallery(miniImages,0)"><img src="mini1.jpeg" alt="Classic Mini"></div><div class="vehicle-content"><h3>Classic Mini</h3><div class="badge">Iconic Little Legend</div><p>Small car, massive character. A timeless classic for photos, events and quirky arrivals.</p></div></div>
+    <div class="vehicle-card"><div class="vehicle-img-wrap" onclick="openGallery(escortImages,0)"><img src="escort1.jpeg" alt="Ford Escort"></div><div class="vehicle-content"><h3>Ford Escort</h3><div class="badge">Retro Favourite</div><p>Old-school cool with proper nostalgia. Great for car fans, events and standout entrances.</p></div></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox"><button class="lightbox-close" onclick="closeLightbox()">×</button><button class="lightbox-prev" onclick="prevImage()">‹</button><img id="lightboxImg" src="" alt="Vehicle image"><button class="lightbox-next" onclick="nextImage()">›</button><div class="lightbox-counter" id="lightboxCounter">1 / 1</div></div>
+<a href="https://www.facebook.com/YOURPAGE" target="_blank" class="floating-fb"><i class="fa-brands fa-facebook-f"></i></a><a href="tel:01603400400" class="floating-call"><i class="fa-solid fa-phone"></i></a>
+<footer><p>© 2026 Wacky Wheels Hire. All rights reserved.</p></footer>
+<script src="main.js"></script>
+</body>
+</html>
