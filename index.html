@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <header>
   <div class="nav">
     <a class="logo" href="index.html">Wacky <span>Wheels</span></a>
@@ -31,7 +33,7 @@
   <a href="book.html" class="btn">Get a Quote</a>
 </div>
 
-<section class="hero" id="home">
+<section class="hero">
   <div class="hero-box">
     <div class="tagline">RETRO VEHICLE HIRE</div>
     <h1>Arrive in <span>Style</span></h1>
@@ -60,7 +62,7 @@
 
 <section class="section">
   <h2>Featured Favourites</h2>
-  <p class="section-text">A small taste of what we offer. View the full vehicle page for the full line-up.</p>
+  <p class="section-text">A small taste of what we offer.</p>
   <div class="cards">
     <div class="vehicle-card">
       <div class="vehicle-img-wrap"><img src="bug1.jpeg" alt="Bond Bug"></div>
@@ -73,23 +75,23 @@
   </div>
 </section>
 
-<a href="https://www.facebook.com/YOURPAGE" target="_blank" class="floating-fb"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="#" class="floating-fb"><i class="fa-brands fa-facebook-f"></i></a>
 <a href="tel:01603400400" class="floating-call"><i class="fa-solid fa-phone"></i></a>
-<footer><p>© 2026 Wacky Wheels Hire. All rights reserved.</p></footer>
-  <footer><p>© 2026 Wacky Wheels Hire. All rights reserved.</p></footer>
 
-<<div class="drive-car">
+<footer>
+  <p>© 2026 Wacky Wheels Hire. All rights reserved.</p>
+  <p style="font-size: 12px; opacity: 0.7;">We respect your privacy. Any information submitted through this website is used solely for booking and enquiry purposes and is never shared with third parties.</p>
+</footer>
+
+<!-- DRIVING CAR -->
+<div class="drive-car">
   <img src="drivebug1.png" alt="Bug Car">
-
-  <!-- spinning wheels -->
-  <div class="wheel wheel-front"></div>
-  <div class="wheel wheel-back"></div>
 </div>
 
 <style>
 .drive-car {
   position: fixed;
-  top: 55px; /* 👈 moved higher onto your line */
+  top: 60px;
   left: -300px;
   z-index: 9999;
   animation: driveCar 8s linear forwards;
@@ -115,40 +117,25 @@
   filter: blur(3px);
 }
 
-/* wheels */
-.wheel {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  border: 4px solid #111;
-  border-radius: 50%;
-  background: radial-gradient(circle, #666 30%, #222 70%);
-  animation: spin 0.25s linear infinite;
-}
-
-/* tweak these if needed */
-.wheel-front {
-  bottom: 6px;
-  right: 42px;
-}
-
-.wheel-back {
-  bottom: 6px;
-  left: 58px;
-}
-
-/* movement (NO fade now) */
+/* smooth travel across ALL devices */
 @keyframes driveCar {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(calc(100vw + 500px));
+    transform: translateX(200vw);
   }
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* mobile size fix */
+@media (max-width: 600px) {
+  .drive-car img {
+    width: 140px;
+  }
 }
 </style>
+
+<script src="main.js"></script>
+
+</body>
+</html>
