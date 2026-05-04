@@ -77,56 +77,25 @@
 <a href="tel:01603400400" class="floating-call"><i class="fa-solid fa-phone"></i></a>
 <footer><p>© 2026 Wacky Wheels Hire. All rights reserved.</p></footer>
   78 </footer>
-<div class="flying-wheel">🚗💨</div>
+<div id="test-wheel">🚗💨</div>
 
 <style>
-.flying-wheel {
+#test-wheel {
   position: fixed;
-  bottom: 80px;
-  left: -100px;
-  font-size: 55px;
-  z-index: 9999;
-  animation: wheelDrive 2.8s ease-in-out 1 forwards;
+  bottom: 100px;
+  left: -120px;
+  font-size: 70px;
+  z-index: 999999999;
+  animation: driveAcross 5s linear forwards;
   pointer-events: none;
 }
 
-/* SMOOTH SMOKE TRAIL */
-.flying-wheel::after {
-  content: "";
-  width: 40px;
-  height: 20px;
-  background: rgba(200, 200, 200, 0.4);
-  border-radius: 50%;
-  filter: blur(8px);
-  position: absolute;
-  left: -50px;
-  top: 20px;
-  opacity: 0;
-  animation: smokeTrail 2.8s ease-out forwards;
-}
-
-@keyframes wheelDrive {
-  0% {
-    left: -100px;
-    transform: rotate(0deg);
-  }
-  100% {
-    left: 110vw;
-    transform: rotate(1080deg);
-  }
-}
-
-@keyframes smokeTrail {
-  0% {
-    opacity: 0;
+@keyframes driveAcross {
+  from {
     transform: translateX(0);
   }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-40px);
+  to {
+    transform: translateX(130vw);
   }
 }
 </style>
